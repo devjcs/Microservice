@@ -1,0 +1,50 @@
+package com.jcs.productos.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.jcs.productos.modelo.entity.Producto;
+import com.jcs.productos.modelo.service.IProductoServicio;
+
+
+@RestController
+@RequestMapping("productos")
+public class ProductoController {
+	
+	@Autowired
+	private IProductoServicio productoService;
+	
+	@PostMapping
+	public ResponseEntity<Producto> nuevoProducto(@RequestBody Producto producto) {
+		return ResponseEntity.ok(productoService.save(producto));
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<Producto>>todosProductos(){
+		return ResponseEntity.ok(productoService.findAll());
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Producto>productoId(@PathVariable("id") Long id){
+		return ResponseEntity.ok(productoService.findById(id));
+	}
+	
+	
+	@GetMapping("/listar")
+	public String listarproductos() {
+
+		return "todo bien";
+	}
+	
+	
+	
+
+}

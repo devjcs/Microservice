@@ -1,0 +1,5 @@
+package com.jcs.productos.modelo.service;
+
+public interface IProductoServicio {
+
+}

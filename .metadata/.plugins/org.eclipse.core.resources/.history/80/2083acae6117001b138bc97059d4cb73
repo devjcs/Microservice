@@ -1,0 +1,10 @@
+package com.jcs.categorias.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+
+public class ProductoController {
+
+	@Value("${server.port}")
+	private Integer port;
+	
+}

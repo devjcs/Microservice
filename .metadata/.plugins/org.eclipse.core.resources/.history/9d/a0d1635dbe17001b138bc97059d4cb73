@@ -1,0 +1,17 @@
+package com.jcs.categorias.modelo.servicio;
+
+import java.util.List;
+
+import com.jcs.productos.modelo.entity.Producto;
+
+public interface IProductoServicio {
+	
+	public List<Producto> findAll();
+	
+	public Producto findById(Long id);
+	
+	public Producto save(Producto producto);
+	
+	public Producto deleteById(Long id);
+
+}

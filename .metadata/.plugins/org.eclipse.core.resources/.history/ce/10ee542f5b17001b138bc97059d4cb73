@@ -1,0 +1,76 @@
+package com.jcs.productos.controllers;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.jcs.productos.modelo.entity.Producto;
+import com.jcs.productos.modelo.service.IProductoServicio;
+
+
+@RestController
+@RequestMapping("productos")
+public class ProductoController {
+	
+	@Autowired
+	private IProductoServicio productoService;
+	
+	@Value("${server.port}")
+	private Integer port;
+	
+	@PostMapping
+	public ResponseEntity<Producto> nuevoProducto(@RequestBody Producto producto) {
+		producto.setPuerto(port);
+		return ResponseEntity.status(HttpStatus.CREATED).body(productoService.save(producto));
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<Producto>>listaProductos(){
+		return ResponseEntity.ok(productoService.findAll().stream().map(p -> {
+			p.setPuerto(port);
+			return p;
+		}).collect(Collectors.toList()));
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Producto>verProductoId(@PathVariable("id") Long id){
+		Producto producto = productoService.findById(id);
+		if (producto != null) {
+			producto.setPuerto(port);
+			return ResponseEntity.ok(producto);
+		}
+		return ResponseEntity.notFound().build();
+	}
+	
+	@PutMapping
+	public ResponseEntity<Producto>actualizarProductoId(@RequestBody Producto producto){
+		if (productoService.findById(producto.getId()) != null) {
+			producto.setPuerto(port);
+			return ResponseEntity.ok(productoService.save(producto));
+		}
+		return ResponseEntity.notFound().build();
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Producto>eliminarProductoId(@PathVariable("id") Long id){
+		if (productoService.findById(id) != null) {
+			producto.setPuerto(port);
+			return ResponseEntity.ok(productoService.deleteById(id));
+		}
+		return ResponseEntity.notFound().build();
+	}
+	
+
+}

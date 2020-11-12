@@ -1,0 +1,9 @@
+package com.jcs.categorias.modelo.servicio;
+
+import com.jcs.categorias.modelos.Producto;
+
+public interface IProductoServicio {
+	
+	public Producto findById(Long id);
+
+}

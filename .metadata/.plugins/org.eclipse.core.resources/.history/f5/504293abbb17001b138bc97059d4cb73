@@ -1,0 +1,5 @@
+package com.jcs.categorias.clientes;
+
+public interface ProductoClienteRest {
+
+}

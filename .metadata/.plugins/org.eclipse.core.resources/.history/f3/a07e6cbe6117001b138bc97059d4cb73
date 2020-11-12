@@ -1,0 +1,15 @@
+package com.jcs.categorias.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
+
+public class ProductoController {
+
+	@Autowired
+	private ICategoriaServicio categoriaService;
+	
+	@Value("${server.port}")
+	private Integer port;
+	
+}

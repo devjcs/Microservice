@@ -1,0 +1,40 @@
+package com.jcs.productos.modelo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jcs.productos.modelo.dao.ProductoDao;
+import com.jcs.productos.modelo.entity.Producto;
+
+@Service
+public class ProductoServicioImpl implements IProductoServicio{
+	
+	@Autowired
+	private ProductoDao productoDao;
+
+	@Override
+	public List<Producto> findAll() {
+		return (List<Producto>) productoDao.findAll();
+	}
+
+	@Override
+	public Producto findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Producto save(Producto producto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

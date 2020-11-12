@@ -1,0 +1,5 @@
+package com.jcs.productos.config;
+
+public class SwaggerConfig {
+
+}

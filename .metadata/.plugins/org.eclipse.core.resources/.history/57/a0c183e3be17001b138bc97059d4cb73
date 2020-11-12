@@ -1,0 +1,16 @@
+package com.jcs.categorias.modelo.servicio;
+
+import org.springframework.stereotype.Service;
+
+import com.jcs.categorias.modelos.Producto;
+
+@Service("serviceRestTemplate")
+public class ProductoServiceFeign implements IProductoServicio {
+
+	@Override
+	public Producto findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

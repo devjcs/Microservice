@@ -1,0 +1,10 @@
+package com.jcs.categorias.modelo.servicio;
+
+import java.util.List;
+
+
+public interface IProductoServicio {
+	
+	public Producto findById(Long id);
+
+}

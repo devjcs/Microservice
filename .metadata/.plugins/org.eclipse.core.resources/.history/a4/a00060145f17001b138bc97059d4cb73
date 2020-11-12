@@ -1,0 +1,16 @@
+package com.jcs.categorias.modelo.servicio;
+
+import java.util.List;
+
+
+public interface ICategoriaServicio {
+	
+	public List<Categoria> findAll();
+
+	public Producto findById(Long id);
+
+	public Producto save(Categoria categoria);
+
+	public Producto deleteById(Long id);
+
+}

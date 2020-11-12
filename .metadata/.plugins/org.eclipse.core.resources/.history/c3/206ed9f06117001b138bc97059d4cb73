@@ -1,0 +1,24 @@
+package com.jcs.categorias.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.jcs.categorias.modelo.servicio.ICategoriaServicio;
+
+
+@RestController
+@RequestMapping("categorias")
+public class ProductoController {
+
+	@Autowired
+	private ICategoriaServicio categoriaService;
+	
+	@Value("${server.port}")
+	private Integer port;
+	
+	
+	
+	
+}

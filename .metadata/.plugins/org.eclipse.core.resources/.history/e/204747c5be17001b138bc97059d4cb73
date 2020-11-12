@@ -1,0 +1,5 @@
+package com.jcs.categorias.modelo.servicio;
+
+public class ProductoServiceFeign {
+
+}

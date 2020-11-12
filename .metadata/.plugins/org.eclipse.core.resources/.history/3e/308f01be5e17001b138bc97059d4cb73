@@ -1,0 +1,9 @@
+package com.jcs.categorias.modelo.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.jcs.productos.modelo.entity.Categoria;
+
+public interface CategoriaDao extends JpaRepository<Categoria, Long>{
+
+}

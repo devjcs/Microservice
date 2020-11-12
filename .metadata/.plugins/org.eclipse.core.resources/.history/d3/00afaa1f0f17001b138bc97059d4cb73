@@ -1,0 +1,5 @@
+package com.jcs.productos.modelo.dao;
+
+public interface ProductoDao {
+
+}

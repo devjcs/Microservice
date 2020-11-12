@@ -1,0 +1,8 @@
+package com.jcs.categorias.modelo.servicio;
+
+import org.springframework.stereotype.Service;
+
+@Service("serviceRestTemplate")
+public class ProductoServiceFeign {
+
+}
